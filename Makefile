@@ -3,11 +3,11 @@
 ################################################################################
 ################################################################################
 
-CC	= gcc
-AS	= as
+CC	= x86_64-w64-mingw32-gcc
+AS	= x86_64-w64-mingw32-gcc  -c
 RM	= rm
 
-TARGET	= calc
+TARGET	= calc.exe
 
 PHONY := all
 all: binary
@@ -15,7 +15,7 @@ all: binary
 PHONY += binary
 binary: calc
 
-calc: main.o calculadora.o
+$(TARGET): main.o calculadora.o
 	$(CC)  main.o calculadora.o  -o  $(TARGET)  -l m
 
 calculadora.s:	calculadora.c calculadora.h
